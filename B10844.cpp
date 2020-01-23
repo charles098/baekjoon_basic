@@ -17,7 +17,7 @@ int main() {
 		for (int j = 0; j <= 9; j++) {
 			if (j == 9) d[i][j] = d[i - 1][j - 1];
 			else if (j == 0) d[i][j] = d[i - 1][j + 1];
-			else d[i][j] = (d[i - 1][j - 1] + d[i - 1][j + 1]) % mod; // 여기서 %mod가 빠지면 틀리는데 이유가 뭐죠?
+			else d[i][j] = (d[i - 1][j - 1] + d[i - 1][j + 1]) % mod;
 		}
 	}
 
