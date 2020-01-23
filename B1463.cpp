@@ -1,4 +1,4 @@
-// 백준 1463번 - dynamic programming
+// 백준 1463번 - 1로 만들기
 #include <algorithm>
 #include <iostream>
 using namespace std;
