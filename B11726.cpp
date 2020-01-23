@@ -1,4 +1,4 @@
-// ¹éÁØ 11726¹ø - 2*n Å¸ÀÏ¸µ
+// ë°±ì¤€ 11726ë²ˆ - 2*n íƒ€ì¼ë§
 #include <iostream>
 using namespace std;
 
