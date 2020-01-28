@@ -1,3 +1,4 @@
+// ë°±ì¤€ 9465ë²ˆ - ìŠ¤í‹°ì»¤
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -12,16 +13,16 @@ int main() {
 
 	cin >> count;
 
-	for (int a = 0; a < count; a++) { // ½ÃÇà È½¼ö
-		cin >> n; // n¹øÂ° ½ÃÇà
-		for (int i = 0; i <= 1; i++) { // n¹øÂ° ¹è¿­ ÃÊ±âÈ­
+	for (int a = 0; a < count; a++) { // ì‹œí–‰ íšŸìˆ˜
+		cin >> n; // në²ˆì§¸ ì‹œí–‰
+		for (int i = 0; i <= 1; i++) { // në²ˆì§¸ ë°°ì—´ ì´ˆê¸°í™”
 			for (int j = 1; j <= n; j++) {
 				cin >> num;
 				d[i][j] = num;
 			}
 		}
 
-		//¾Ë°í¸®Áò ½ÃÀÛ
+		//ì•Œê³ ë¦¬ì¦˜ ì‹œìž‘
 		sum[0][1] = d[0][1]; sum[1][1] = d[1][1];
 		sum[0][0] = sum[1][0] = 0;
 		for (int i = 2; i <= n; i++) {
