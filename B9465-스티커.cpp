@@ -14,8 +14,8 @@ int main() {
 	cin >> count;
 
 	for (int a = 0; a < count; a++) { // 시행 횟수
-		cin >> n; // n번째 시행
-		for (int i = 0; i <= 1; i++) { // n번째 배열 초기화
+		cin >> n; // a번째 시행
+		for (int i = 0; i <= 1; i++) { // a번째 배열 초기화
 			for (int j = 1; j <= n; j++) {
 				cin >> num;
 				d[i][j] = num;
