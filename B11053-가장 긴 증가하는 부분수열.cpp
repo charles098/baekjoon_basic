@@ -1,3 +1,5 @@
+//백준 11053번 - 가장 긴 증가하는 부분 수열
+// 어려워서 많이 검색해봤다ㅠ
 #include <iostream>
 using namespace std;
 
