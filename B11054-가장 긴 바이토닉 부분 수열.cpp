@@ -1,3 +1,4 @@
+// К╟╠Л╓─ 11054К╡┬ - Й╟─Л·╔ Й╦╢ К╟■Л²╢М├═К▀┴ К╤─К╤└ Л┬≤Л≈╢
 #include <iostream>
 using namespace std;
 
@@ -14,12 +15,12 @@ int main() {
 
 	for (int i = 1; i <= n; i++)
 		for (int j = 1; j < i; j++)
-			if (a[i] > a[j] && dp[j][1] + 1 > dp[i][1]) // dp[i][1] ю╨ аУ╟║го╢б ╪Ж©╜ 
+			if (a[i] > a[j] && dp[j][1] + 1 > dp[i][1]) // dp[i][1] Л²─ Л╕²Й╟─М∙≤К┼■ Л┬≤Л≈╢ 
 				dp[i][1] = dp[j][1] + 1;
 
 	for (int i = n; 1 <= i; i--)
 		for (int j = n; i < j; j--)
-			if (a[i] > a[j] && dp[j][0] + 1 > dp[i][0]) // dp[i][0] ю╨ ╟╗╪рго╢б ╪Ж©╜
+			if (a[i] > a[j] && dp[j][0] + 1 > dp[i][0]) // dp[i][0] Л²─ Й╟░Л├▄М∙≤К┼■ Л┬≤Л≈╢
 				dp[i][0] = dp[j][0] + 1;
 
 	int max = 0;
