@@ -1,3 +1,4 @@
+// 백준 1912번 - 연속합
 #include <iostream>
 #include <algorithm>
 using namespace std;
