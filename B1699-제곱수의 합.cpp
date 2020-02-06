@@ -1,3 +1,4 @@
+// 백준 1699번 - 제곱수의 합
 #include <iostream>
 #include <algorithm>
 using namespace std;
