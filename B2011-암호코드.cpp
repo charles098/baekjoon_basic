@@ -1,3 +1,5 @@
+// 백준 2011번 - 암호코드
+// 오랜 고민끝에 포기해서 걍 배꼈다
 #include <iostream>
 #include <string>
 using namespace std;
