@@ -1,3 +1,4 @@
+// 백준 2225번 - 합분해
 #include <iostream>
 using namespace std;
 
