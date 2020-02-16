@@ -1,3 +1,6 @@
+// 백준 2751번 - 수 정렬하기2
+// 퀵정렬 문제로 유투브 영상을 보면서 이해힜다.
+// 아래 위 둘 다 같은 방법이지만 위에 방법이 더 속도가 빠르다.
 #include <iostream>
 using namespace std;
 
@@ -8,6 +11,7 @@ void swap(int* a, int* b) {
 	a = b;
 	b = a;
 }
+
 void quickSort(int start, int end)
 {
 	if (start >= end) return;
@@ -36,7 +40,7 @@ int main() {
 
 	quickSort(0, n - 1);
 
-	for (int j = 0; j < n; j++) // ���
+	for (int j = 0; j < n; j++) // Ãâ·Â
 		printf("%d\n", quick[j]);
 
 	return 0;
@@ -52,7 +56,7 @@ void quickSort(int* data, int start, int end) {
 	int j = end;
 	int temp;
 
-	while (i <= j) { // ������ ������ �ݺ�
+	while (i <= j) { // ¾ù°¥¸± ¶§±îÁö ¹Ýº¹
 		while (data[i] <= data[pivot]) i++;
 		while (data[j] >= data[pivot] && j > start) j--;
 		if (i > j) {
