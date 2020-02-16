@@ -1,3 +1,6 @@
+// 백준 11650번 - 좌표 정렬하기
+// pair<T1, T2>라는 새로운 개념을 알았다
+// sort함수도 처음 써봤다
 #include <iostream> 
 #include <vector> 
 #include <algorithm> 
