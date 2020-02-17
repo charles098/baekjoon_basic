@@ -1,6 +1,5 @@
+// 백준 11047번 - 동전0
 #include <iostream> 
-#include <vector> 
-#include <algorithm> 
 using namespace std;
 
 int main(){
@@ -21,6 +20,6 @@ int main(){
 	}
 
 	cout << count;
-
+	delete[] arr;
 	return 0;
 }
