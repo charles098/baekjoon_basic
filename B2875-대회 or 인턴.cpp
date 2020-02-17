@@ -1,3 +1,4 @@
+// 백준 2875번 - 대회 or 인턴
 #include <iostream>
 using namespace std;
 
