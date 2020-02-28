@@ -1,3 +1,7 @@
+// ë°±ì¤€ 2873ë²ˆ - ë¡¤ëŸ¬ì½”ìŠ¤í„°
+// ì–´ë ¤ì›Œì„œ 'ì—¬ìš°ì™€ íŒ½ê·„ì˜ ë¸”ë¡œê·¸'ë¥¼ ì°¸ê³ í–ˆë‹¤
+// ì²´ìŠ¤íŒì˜ ê°œë…ì„ ì•Œë©´ ë¹„êµì  ê°„ë‹¨í•˜ê²Œ í’€ ìˆ˜ ìˆë‹¤
+// ì¢Œìƒ ì¹¸ì„ í°ìƒ‰ì´ë¼ ê°€ì •í•˜ê³  ê²€ì€ì¹¸ ì¤‘ì— ì œì¼ ìµœì†Œê°’ì„ ì°¾ëŠ”ê²Œ í•µì‹¬ì´ë‹¤!
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -5,7 +9,7 @@ using namespace std;
 
 int arr[1000][1000];
 
-// ¹İº¹ÀÛ¾÷ ¹æÁö¸¦ À§ÇØ appendÇÔ¼ö ¸¸µé¾îÁÜ
+// ë°˜ë³µì‘ì—… ë°©ì§€ë¥¼ ìœ„í•´ appendí•¨ìˆ˜ ë§Œë“¤ì–´ì¤Œ
 void append(string& s, char c, int end) {
 	for (int i = 0; i < end; i++)
 		s += c;
@@ -13,13 +17,13 @@ void append(string& s, char c, int end) {
 
 int main() {
 	int row, col;
-	cin >> row >> col; // Çà, ¿­ ÀÔ·Â
+	cin >> row >> col; // í–‰, ì—´ ì…ë ¥
 
 	for (int i = 0; i < row; i++)
 		for (int j = 0; j < col; j++)
-			cin >> arr[i][j]; // °ª ÀÔ·Â
+			cin >> arr[i][j]; // ê°’ ì…ë ¥
 
-	if (row % 2 == 1) { // ÇàÀÌ È¦¼öÀÏ °æ¿ì
+	if (row % 2 == 1) { // í–‰ì´ í™€ìˆ˜ì¼ ê²½ìš°
 		string result = "";
 		while (row != 1) {
 			append(result, 'R', col - 1);
@@ -31,7 +35,7 @@ int main() {
 		append(result, 'R', col - 1);
 		cout << result;
 	}
-	else if (col % 2 == 1) { // ¿­ÀÌ È¦¼öÀÏ °æ¿ì
+	else if (col % 2 == 1) { // ì—´ì´ í™€ìˆ˜ì¼ ê²½ìš°
 		string result = "";
 		while (col != 1) {
 			append(result, 'D', row - 1);
@@ -43,9 +47,9 @@ int main() {
 		append(result, 'D', row - 1);
 		cout << result;
 	}
-	else { // Çà, ¿­ µÑ ´Ù Â¦¼öÀÏ °æ¿ì
+	else { // í–‰, ì—´ ë‘˜ ë‹¤ ì§ìˆ˜ì¼ ê²½ìš°
 		string result = "", rev = "";
-		//ÃÖ¼Ò°ª Ã£±â
+		//ìµœì†Œê°’ ì°¾ê¸°
 		int x = 0, y = 1;
 		int min = arr[0][1];
 		for (int i = 0; i < row; i++) {
@@ -56,18 +60,18 @@ int main() {
 				}
 			}
 		}
-		// ÃÊ±â°ª ¼³Á¤ - ÁÂ»ó, ¿ìÇÏ
+		// ì´ˆê¸°ê°’ ì„¤ì • - ì¢Œìƒ, ìš°í•˜
 		int s_row = 0, s_col = 0, e_row = row - 1, e_col = col - 1;
-		// ÃÖ¼Ò°ª ±âÁØ ¾Æ·¡À§ µÎ Çà¾¿ Á¦°Å
+		// ìµœì†Œê°’ ê¸°ì¤€ ì•„ë˜ìœ„ ë‘ í–‰ì”© ì œê±°
 		while (e_row - s_row > 1) {
-			if (s_row + 1 < x) { // Á¶°Ç °É¸®¸é À§¿¡ µÎ Çà Á¦°Å
+			if (s_row + 1 < x) { // ì¡°ê±´ ê±¸ë¦¬ë©´ ìœ„ì— ë‘ í–‰ ì œê±°
 				append(result, 'R', col - 1);
 				append(result, 'D', 1);
 				append(result, 'L', col - 1);
 				append(result, 'D', 1);
 				s_row += 2;
 			}
-			if (e_row - 1 > x) { // Á¶°Ç °É¸®¸é ¾Æ·¡ µÎ Çà Á¦°Å
+			if (e_row - 1 > x) { // ì¡°ê±´ ê±¸ë¦¬ë©´ ì•„ë˜ ë‘ í–‰ ì œê±°
 				append(rev, 'R', col - 1);
 				append(rev, 'D', 1);
 				append(rev, 'L', col - 1);
@@ -75,16 +79,16 @@ int main() {
 				e_row -= 2;
 			}
 		}
-		// ÃÖ¼Ò°ª ±âÁØ ÁÂ¿ì µÎ ¿­¾¿ Á¦°Å
+		// ìµœì†Œê°’ ê¸°ì¤€ ì¢Œìš° ë‘ ì—´ì”© ì œê±°
 		while (e_col - s_col > 1) { 
-			if (s_col + 1 < y) { // Á¶°Ç¿¡ °É¸®¸é ¿ŞÂÊ µÎ ¿­ Á¦°Å
+			if (s_col + 1 < y) { // ì¡°ê±´ì— ê±¸ë¦¬ë©´ ì™¼ìª½ ë‘ ì—´ ì œê±°
 				append(result, 'D', 1);
 				append(result, 'R', 1);
 				append(result, 'U', 1);
 				append(result, 'R', 1);
 				s_col += 2;
 			}
-			if (e_col - 1 > y) { // Á¶°Ç¿¡ °É¸®¸é ¿À¸¥ÂÊ µÎ ¿­ Á¦°Å
+			if (e_col - 1 > y) { // ì¡°ê±´ì— ê±¸ë¦¬ë©´ ì˜¤ë¥¸ìª½ ë‘ ì—´ ì œê±°
 				append(rev, 'D', 1);
 				append(rev, 'R', 1);
 				append(rev, 'U', 1);
@@ -92,15 +96,15 @@ int main() {
 				e_col -= 2;
 			}
 		}
-		if (x == e_row) { // ÃÖ¼Ò°ªÀÌ ¾Æ·¡ÂÊ¿¡ ÀÖÀ¸¸é RD Ãß°¡
+		if (x == e_row) { // ìµœì†Œê°’ì´ ì•„ë˜ìª½ì— ìˆìœ¼ë©´ RD ì¶”ê°€
 			append(result, 'R', 1);
 			append(result, 'D', 1);
 		}
-		else if (x == s_row) { // ÃÖ¼Ò°ªÀÌ À§ÂÊ¿¡ ÀÖÀ¸¸é DR Ãß°¡
+		else if (x == s_row) { // ìµœì†Œê°’ì´ ìœ„ìª½ì— ìˆìœ¼ë©´ DR ì¶”ê°€
 			append(result, 'D', 1);
 			append(result, 'R', 1);
 		}
-		reverse(rev.begin(), rev.end()); // rev µÚÁı±â
+		reverse(rev.begin(), rev.end()); // rev ë’¤ì§‘ê¸°
 		result += rev;
 		cout << result;
 	}
