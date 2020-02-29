@@ -5,6 +5,7 @@ using namespace std;
 int N, M, rec[101][101];
 long long Max = 0;
 
+// 직사각형 안에 있는 숫자들 더해주는 함수
 long long sum(int s_col, int e_col, int s_row, int e_row) {
 	long long s = 0;
 	for (int i = s_row; i <= e_row; i++)
