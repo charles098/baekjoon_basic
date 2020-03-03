@@ -1,0 +1,65 @@
+// 백준 1260번 - DFS와 BFS
+#include <iostream>
+#include <queue>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int visit[1001];
+vector<int> link[1001];
+
+void dfs(int start) {
+	if (visit[start]) return;
+	visit[start] = true;
+	printf("%d ", start);
+
+	for (int i = 0; i < link[start].size(); i++) {
+		int go = link[start][i];
+		dfs(go);
+	}
+}
+
+void bfs(int start) {
+	queue<int> q;
+	q.push(start);
+	visit[start] = 1;
+
+	while (!q.empty()) {
+		int pos = q.front();
+		q.pop();
+		printf("%d ", pos);
+		for (int i = 0; i < link[pos].size(); i++) {
+			int go = link[pos][i];
+			if (!visit[go]) {
+				q.push(go);
+				visit[go] = 1;
+			}
+		}
+		
+	}
+}
+
+int main() {
+	int n, m, v;
+	cin >> n >> m >> v;
+	
+	int a, b;
+	for (int i = 0; i < m; i++) {
+			cin >> a >> b;
+			link[a].push_back(b);
+			link[b].push_back(a);
+	}
+
+	for (int i = 0; i < n + 1; i++) 
+		sort(link[i].begin(), link[i].end());
+	
+	dfs(v);
+
+	for (int i = 0; i < 1001; i++)
+		visit[i] = 0;
+
+	printf("\n");
+	bfs(v);
+
+	return 0;
+}
