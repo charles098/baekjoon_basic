@@ -1,8 +1,8 @@
 // 백준 2331번 - 반복수열
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cmath>
+#include <string> // to_string
+#include <cmath> // pow
 using namespace std;
 
 vector<int> seq;
