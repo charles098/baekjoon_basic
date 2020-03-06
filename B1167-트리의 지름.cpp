@@ -9,46 +9,46 @@
 #include <cstring>
 using namespace std;
 
-vector<pair<int,int>> link[100001];
+vector<pair<int, int>> tree[100001];
 int visit[100001];
-int V, far, result;
+int V, from, to, weight, far, result;
 
-
-void dfs(int node, int sum) {
-	if (visit[node])
+void dfs(int start, int sum) {
+	if (visit[start])
 		return;
-	visit[node] = true;
-
+	visit[start] = 1;
 	if (result < sum) {
+		far = start;
 		result = sum;
-		far = node;
 	}
 
-	for (int i = 0; i < link[node].size(); i++) {
-		int next = link[node][i].first;
-		int distance = link[node][i].second;
-		dfs(next, sum + distance);
+	for (int i = 0; i < tree[start].size(); i++) {
+		int y = tree[start][i].first;
+		dfs(y, sum + tree[start][i].second);
 	}
 }
 
 int main() {
 	cin >> V;
-	int from, to, dis;
-	for (int i = 1; i <= V; i++) {
+	for (int rep = 0; rep < V; rep++) {
 		cin >> from;
 		while (true) {
 			cin >> to;
 			if (to == -1)
 				break;
-			cin >> dis;
-			link[from].push_back({to,dis});
+			cin >> weight;
+			tree[from].push_back({ to,weight });
 		}
 	}
 
+	result = 0;
 	dfs(1, 0);
-	memset(visit, 0, sizeof(visit));
+	memset(visit, false, sizeof(visit));
+	result = 0;
+
 	dfs(far, 0);
 
 	cout << result;
-
-	retu
+	
+	return 0;
+}
