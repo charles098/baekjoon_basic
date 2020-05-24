@@ -1,4 +1,6 @@
-﻿#include <iostream>
+// 백준 5639번 - 이진 검색 트리
+// 자료구조 시간에 배운 이진트리 코드를 참고해서 풀었다
+#include <iostream>
 using namespace std;
 
 typedef int ItemType;
