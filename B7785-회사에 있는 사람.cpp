@@ -1,11 +1,11 @@
-﻿#include <iostream>
+// 백준 7785번 - 회사에 있는 사람
+#include <iostream>
 #include <set>
+#include <string>
 using namespace std;
 
-
-
 int main() {
-	set<string, greater<string>> s;
+	set<string, greater<string>> s; // 사전 역순 출력을 위함
 	set<string>::iterator iter;
 	int count;
 	string name, log;
@@ -19,7 +19,7 @@ int main() {
 			s.insert(name);
 	}
 	for (iter = s.begin(); iter != s.end(); iter++)
-		cout << *iter << endl;
+		cout << *iter << '\n';
 
 	return 0;
 }
