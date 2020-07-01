@@ -1,3 +1,7 @@
+// 백준 14499번 - 주사위 굴리기
+// 그림을 그려가면서 동서남북으로 이동할 때 주사위 전개도의 위치가 어떻게 바뀌는지 알아보았다
+// 오래 걸렸지만 이동 함수만 잘 짜면 크게 어렵지 않은 문제였다
+// 범위를 벗어나는 것을 고려해주지 않아 시간 낭비를 많이 했다
 #include <iostream>
 #include <utility>
 #include <queue>
@@ -15,25 +19,25 @@ struct dice {
 void dice::transform(int direction) {
 	dice temp(one, two, three, four, five, six);
 	
-	if (direction == 1) { // ������ ���
+	if (direction == 1) { // 동쪽인 경우
 		one = temp.three;
 		three = temp.six;
 		four = temp.one;
 		six = temp.four;
 	}
-	else if (direction == 2) { // ������ ���
+	else if (direction == 2) { // 서쪽인 경우
 		one = temp.four;
 		three = temp.one;
 		four = temp.six;
 		six = temp.three;
 	}
-	else if (direction == 3) { // ������ ���
+	else if (direction == 3) { // 북쪽인 경우
 		one = temp.two;
 		two = temp.six;
 		five = temp.one;
 		six = temp.five;
 	}
-	else if(direction == 4){ // ������ ���
+	else if(direction == 4){ // 남쪽인 경우
 		one = temp.five;
 		two = temp.one;
 		five = temp.six;
@@ -43,28 +47,28 @@ void dice::transform(int direction) {
 }
 
 void dice::move_location(int direction, int N, int M, bool& search){
-	if (direction == 1) { // ��
+	if (direction == 1) { // 동
 		location.second += 1;
 		if (location.second >= M) {
 			location.second -= 1;
 			search = false;
 		}
 	}
-	else if (direction == 2) { // ��
+	else if (direction == 2) { // 서
 		location.second -= 1;
 		if (location.second < 0) {
 			location.second += 1;
 			search = false;
 		}
 	}
-	else if (direction == 3) { // ��
+	else if (direction == 3) { // 북
 		location.first -= 1;
 		if (location.first < 0) {
 			location.first += 1;
 			search = false;
 		}
 	}
-	else if (direction == 4) { // ��
+	else if (direction == 4) { // 남
 		location.first += 1;
 		if (location.first >= N) {
 			location.first -= 1;
@@ -74,22 +78,22 @@ void dice::move_location(int direction, int N, int M, bool& search){
 }
 
 int main() {
-	// �ֻ��� �ʱ�ȭ
+	// 주사위 초기화
 	dice d(0, 0, 0, 0, 0, 0);
 
 	int N, M, x, y, K, dir;
 
 	cin >> N >> M >> x >> y >> K;
 	
-	// �ֻ��� ��ġ ����
+	// 주사위 위치 설정
 	d.location = { x, y };
 
-	// �迭 ���� �Ҵ�
+	// 배열 동적 할당
 	int** map = new int* [N];
 	for (int i = 0; i < N; i++)
 		map[i] = new int[M];
 
-	// ������ �� �Է�
+	// 지도에 값 입력
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < M; j++)
 			cin >> map[i][j];
@@ -120,7 +124,7 @@ int main() {
 		que.pop();
 	}
 
-	// �Ҵ�����
+	// 할당해제
 	for (int i = 0; i < N; i++)
 		delete[] map[i];
 	delete[] map;
